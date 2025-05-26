@@ -4,7 +4,7 @@
 26 de maio de 2025
 
 ## 📝 Descrição Geral
-Este relatório documenta as últimas atualizações e melhorias realizadas no desenvolvimento do site **Divini Sabor**, incluindo avanços no front-end com React e Tailwind CSS, ajustes de componentes, estilização, responsividade e navegação.
+Este relatório documenta as últimas atualizações e melhorias realizadas no desenvolvimento do site **Buffet Grand Chef**, incluindo avanços no front-end com React e Tailwind CSS, ajustes de componentes, estilização, responsividade e navegação.
 
 ## 🚀 Atualizações Realizadas
 
