@@ -2,7 +2,7 @@
 
 ## 📝 Descrição Geral
 
-A página **Produtos** foi criada com foco na apresentação dos serviços e produtos oferecidos pelo Buffet, onde o cliente tem acesso a produtos individuais fora dos pacotes de serviços oferecidos pelo buffet. Ela segue a mesma identidade visual do projeto, mantendo consistência com a Navbar, paleta de cores, fontes e componentes utilizados nas demais páginas.
+A página **Produtos** foi criada com foco na apresentação dos serviços e produtos oferecidos pelo Buffet, onde o cliente tem acesso a produtos individuais além dos pacotes de serviços oferecidos pelo buffet. Ela segue a mesma identidade visual do projeto, mantendo consistência com a Navbar, paleta de cores, fontes e componentes utilizados nas demais páginas.
 
 Seu objetivo é oferecer uma interface clara, responsiva e interativa, onde os usuários podem visualizar os produtos de forma organizada, intuitiva e atraente.
 
