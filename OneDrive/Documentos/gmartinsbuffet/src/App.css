@@ -1,0 +1,154 @@
+
+
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 300px; /* altura fixa para garantir espaço para o efeito */
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  
+}
+
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  border-radius: 0.5rem; /* compatível com Tailwind rounded-lg */
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Suavizar a transição do carrossel (opcional) */
+.carousel-container {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* index.css ou App.css */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* App.css */
+.custom-radio {
+  accent-color: #9333ea; /* Roxo */
+}
+
+.confirm-btn {
+  border: 1px solid #ccc;
+  background-color: white;
+  padding: 0 6px;
+  border-radius: 4px;
+  color: #9333ea;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+
+
+/* 🎯 Estilo da paginação (bolinhas) */
+.swiper-pagination {
+  bottom: 50px !important; /* 🔼 Sobe as bolinhas (antes padrão é ~10px) */
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 05px;
+  background-color: #a855f7; /* Roxo lilás bonito */
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  color: rgb(253, 148, 253);
+  background-color: #f1f0b6;
+  padding: 05px 25px;
+  border-radius: 8px;
+   margin: 0 14px;
+ 
+ 
+  
+  z-index: 50;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ec79f0; /* Roxo vibrante para ativo */
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+
+
+/* === Customização dos botões laterais do Swiper === */
+.swiper-button-prev, .swiper-button-next {
+
+  color: rgb(227, 148, 247);
+  padding: 90px 1px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 80px 10px; 
+  font-size: 50px;
+}
+
+.swiper-button-prev {
+  left: 0;
+  margin-left: 10px;
+}
+
+.swiper-button-next {
+  right: 0;
+  margin-right: 10px;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 29px;
+  
+}
+
+/* Container dos bullets - controla alinhamento e espaço */
+.swiper-pagination {
+  display: flex !important;
+  justify-content: center;
+  gap: 20px; /* 👉 Espaçamento entre bullets */
+}
+
+/* Estilo dos bullets */
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 6px;
+  background-color: #ecf5bb;
+  opacity: 0.6;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(12, 12, 12, 0.4); /* 🌟 Sombra lilás suave */
+  cursor: pointer;
+}
+
+/* Hover nos bullets */
+.swiper-pagination-bullet:hover {
+  transform: scale(1.2); /* 🔍 Aumenta um pouco no hover */
+  background-color:  #ec8df8; /* Roxo mais forte */
+  opacity: 1;
+}
+
+/* Bullet ativo */
+.swiper-pagination-bullet-active {
+  background-color: #d4adf8;
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(192, 140, 240, 0.7); /* 🌟 Glow no ativo */
+  transform: scale(1.3);
+}

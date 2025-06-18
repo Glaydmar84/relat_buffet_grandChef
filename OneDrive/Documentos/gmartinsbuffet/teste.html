@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Escolha seus Favoritos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #a78bfa;
+      border-radius: 10px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #8b5cf6;
+    }
+    .smooth-transition {
+      transition: all 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="flex items-center justify-center min-h-screen p-4">
+    <div class="w-full max-w-4xl bg-white rounded-xl shadow-lg overflow-hidden smooth-transition">
+      <!-- Cabeçalho -->
+      <div class="bg-gradient-to-r from-purple-500 to-indigo-600 p-4 text-center">
+        <h1 class="text-2xl md:text-3xl font-bold text-white">
+          <i class="fas fa-heart mr-2"></i> ESCOLHA SEUS FAVORITOS
+        </h1>
+      </div>
+
+      <!-- Categorias -->
+      <div class="flex overflow-x-auto bg-gray-100 border-b">
+        <div class="flex space-x-1 px-2 py-2 w-full justify-around">
+          <button class="categoria-btn px-4 py-2 rounded-lg bg-purple-500 text-white font-semibold whitespace-nowrap" data-categoria="salgados">Salgados</button>
+          <button class="categoria-btn px-4 py-2 rounded-lg bg-white text-purple-700 font-semibold whitespace-nowrap hover:bg-purple-100" data-categoria="doces">Doces</button>
+          <button class="categoria-btn px-4 py-2 rounded-lg bg-white text-purple-700 font-semibold whitespace-nowrap hover:bg-purple-100" data-categoria="bolos">Bolos</button>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row h-[500px]">
+        <!-- Lista de produtos -->
+        <div class="w-full md:w-1/3 border-r bg-gray-50 overflow-y-auto custom-scrollbar p-3 space-y-2" id="lista-produtos">
+          <!-- Produtos vão ser inseridos aqui via JS -->
+        </div>
+
+        <!-- Detalhes do produto -->
+        <div class="w-full md:w-2/3 bg-white relative flex items-center justify-center p-4" id="detalhes-produto">
+          <div class="text-center text-gray-500">
+            <i class="fas fa-search text-5xl mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-700">Nenhum produto selecionado</h3>
+            <p class="text-gray-500">Clique em um produto para ver os detalhes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const produtosPorCategoria = {
+        salgados: [
+          { nome: "Coxinha", preco: "R$ 100,00", imagem: "https://via.placeholder.com/400x300?text=Coxinha", descricao: "Deliciosa coxinha crocante recheada com frango." },
+          { nome: "Pastel", preco: "R$ 90,00", imagem: "https://via.placeholder.com/400x300?text=Pastel", descricao: "Pastel sequinho recheado com carne moída e queijo." },
+          { nome: "Empada", preco: "R$ 95,00", imagem: "https://via.placeholder.com/400x300?text=Empada", descricao: "Empada cremosa de frango com massa amanteigada." }
+        ],
+        doces: [
+          { nome: "Beijinho", preco: "R$ 80,00", imagem: "https://via.placeholder.com/400x300?text=Beijinho", descricao: "Docinho de coco com leite condensado e açúcar cristal." },
+          { nome: "Brigadeiro", preco: "R$ 85,00", imagem: "https://via.placeholder.com/400x300?text=Brigadeiro", descricao: "Clássico brigadeiro com granulado de chocolate." },
+          { nome: "Casadinho", preco: "R$ 90,00", imagem: "https://via.placeholder.com/400x300?text=Casadinho", descricao: "Metade brigadeiro, metade beijinho — a união perfeita!" }
+        ],
+        bolos: [
+          { nome: "Bolo de Chocolate", preco: "R$ 150,00", imagem: "https://via.placeholder.com/400x300?text=Bolo+de+Chocolate", descricao: "Bolo molhadinho de chocolate com cobertura cremosa." },
+          { nome: "Bolo de Morango", preco: "R$ 160,00", imagem: "https://via.placeholder.com/400x300?text=Bolo+de+Morango", descricao: "Bolo leve com recheio de creme e morangos frescos." }
+        ]
+      };
+
+      const listaProdutos = document.getElementById("lista-produtos");
+      const detalhesProduto = document.getElementById("detalhes-produto");
+      const botoesCategoria = document.querySelectorAll(".categoria-btn");
+
+      function exibirProdutos(categoria) {
+        listaProdutos.innerHTML = "";
+        produtosPorCategoria[categoria].forEach(prod => {
+          const div = document.createElement("div");
+          div.className = "p-3 bg-white rounded-lg shadow-sm hover:shadow-md cursor-pointer smooth-transition hover:bg-purple-50 border border-gray-200";
+          div.innerHTML = `
+            <h3 class="font-medium text-gray-800">${prod.nome}</h3>
+            <p class="text-sm text-gray-500">${prod.preco}</p>
+          `;
+          div.addEventListener("click", () => mostrarDetalhes(prod));
+          listaProdutos.appendChild(div);
+        });
+      }
+
+      function mostrarDetalhes(produto) {
+        detalhesProduto.innerHTML = `
+          <div class="w-full h-full flex flex-col justify-between">
+            <div class="flex justify-end">
+              <button class="text-gray-500 hover:text-red-500 text-2xl font-bold" id="btn-fechar">&times;</button>
+            </div>
+            <div class="flex flex-col md:flex-row gap-6 h-[70%]">
+              <div class="md:w-1/2">
+                <img src="${produto.imagem}" alt="${produto.nome}" class="w-full h-48 md:h-full object-cover rounded-lg shadow-md">
+              </div>
+              <div class="md:w-1/2 text-left">
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">${produto.nome}</h2>
+                <p class="text-gray-600 mb-4">${produto.descricao}</p>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-xl font-bold text-purple-600">${produto.preco}</span>
+                  <span class="text-sm text-gray-500">/ 100 unidades</span>
+                </div>
+                <button class="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 rounded-lg font-semibold smooth-transition">
+                  <i class="fas fa-shopping-cart mr-2"></i> Confirmar Pedido
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        document.getElementById("btn-fechar").addEventListener("click", limparDetalhes);
+      }
+
+      function limparDetalhes() {
+        detalhesProduto.innerHTML = `
+          <div class="text-center text-gray-500">
+            <i class="fas fa-search text-5xl mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-700">Nenhum produto selecionado</h3>
+            <p class="text-gray-500">Clique em um produto para ver os detalhes</p>
+          </div>
+        `;
+      }
+
+      botoesCategoria.forEach(btn => {
+        btn.addEventListener("click", () => {
+          botoesCategoria.forEach(b => b.classList.remove("bg-purple-500", "text-white"));
+          btn.classList.add("bg-purple-500", "text-white");
+          const categoria = btn.getAttribute("data-categoria");
+          exibirProdutos(categoria);
+          limparDetalhes();
+        });
+      });
+
+      // Exibe a primeira categoria por padrão
+      exibirProdutos("salgados");
+    });
+  </script>
+</body>
+</html>
