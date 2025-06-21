@@ -1,4 +1,4 @@
-# 🎯 Relatório de Responsividade — `EscolhaFavoritos.jsx`
+# 🎯 Relatório de Responsividade — Projeto Buffet Grand Cheff
 
 Este documento descreve a estratégia de responsividade utilizada no componente `EscolhaFavoritos`, detalhando como os **breakpoints nativos** do Tailwind CSS e os **screens personalizados** foram aplicados para garantir uma experiência fluida em múltiplos tamanhos de tela.
 
