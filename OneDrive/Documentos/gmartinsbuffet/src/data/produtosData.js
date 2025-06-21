@@ -46,13 +46,13 @@ const produtosPorCategoria = {
       nome: "Bolo de Chocolate",
       preco: "R$ 150,00",
       imagem: "https://via.placeholder.com/400x300?text=Bolo+de+Chocolate",
-      descricao: "Bolo molhadinho de chocolate com cobertura cremosa."
+      descricao: "Bolo de chocolate com cobertura cremosa."
     },
     {
       nome: "Bolo de Morango",
       preco: "R$ 160,00",
       imagem: "https://via.placeholder.com/400x300?text=Bolo+de+Morango",
-      descricao: "Bolo leve com recheio de creme e morangos frescos."
+      descricao: "Bolo leve com recheio de creme e morangos."
     }
   ]
 };

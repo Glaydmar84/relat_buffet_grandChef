@@ -19,9 +19,12 @@ module.exports = {
         comfortaa: ['Comfortaa', 'cursive'],
       },
       screens: {
-       'xsplus': {'min': '390px', 'max': '719px'},
-       'xsm360': {'min': '344px', 'max': '389px'},
-      'mdcol': { 'min': '768px', 'max': '1024px' }
+      'xsplus': {'min': '390px', 'max': '719px'},
+      'xsm360': {'min': '344px', 'max': '389px'},
+      'mdcol': { 'min': '768px', 'max': '1024px' },
+      'xs540': { 'max': '540px' },
+      'small': { 'raw': '(width: 1024px) and (height: 600px)' },
+      'mdhover': '769px',
       },
     },
   },
