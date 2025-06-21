@@ -1,0 +1,34 @@
+# Relatório de Aplicação de Breakpoints Personalizados no Tailwind CSS
+
+## 1. Objetivo 🎯
+O objetivo da aplicação de breakpoints personalizados foi garantir que o layout do projeto se adaptasse de forma precisa
+     a diferentes tamanhos de tela, especialmente resoluções específicas que não são contempladas nos pontos de 
+     interrupção padrão do Tailwind CSS.
+
+## 2. Motivação 
+Durante os testes de responsividade, foram identificadas diferenças no comportamento do . A utilização dos breakpoints
+     padrões (`sm`, `md`, `lg`, etc.) não foi suficiente para tratar ajustes finos devido a proporcionalidade de 
+     variedade de dimensões                                                                                                                                                                                                                                                                                                       de tela.
+
+## 3. Solução Aplicada
+Foi implementado o recurso de **breakpoints personalizados** por meio da configuração `extend.screens` no arquivo 
+`tailwind.config.js`. Esse recurso permite definir pontos de interrupção específicos, utilizando a regra `raw` 
+com expressões de mídia (`media queries`) diretamente no Tailwind.
+
+## 4. Exemplo da Configuração Implementada
+
+```javascript
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  theme: {
+    extend: {
+      screens: {
+        xs: '414px', // Breakpoint mínimo
+        xsExtend: { raw: '(min-width: 390px) and (max-width: 414px)' }, // Faixa específica
+        xxs: '375px', // Outro exemplo adicional
+      },
+    },
+  },
+  plugins: [],
+};
